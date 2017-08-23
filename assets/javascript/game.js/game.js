@@ -68,7 +68,7 @@ $(document).ready(function() {
     // If the user won...
     if (winOrLose === true) {
       // Show victory message, restart the game, and render the new "current guess" number.
-      $("#win-block").append($("<p>").text("You won!!"));
+      $("#win-block").append($("<p>").text("We have a Winner!"));
       gameReset();
       renderMatchingNumber();
     }
@@ -78,7 +78,7 @@ $(document).ready(function() {
     // If the user lost...
     else if (winOrLose === false) {
       // Show defeat message, restart the game, and render the new "current guess" number.
-      $("#win-block").append($("<p>").text("You lost!!"));
+      $("#win-block").append($("<p>").text("Bummer!"));
       gameReset();
       renderMatchingNumber();
     }
@@ -147,10 +147,11 @@ $(document).ready(function() {
 
   
 
-    // If tally matches, register true as a win
+     // If tally matches, register true as a win
     if (playerPicks === computerGen) {
       // If a win, tally the win and restart the game.
       wins++;
+      $("#win-block").attr("style", "color: #58ef85;")
       gameReset();
       updateDom(true);
     }
@@ -158,6 +159,7 @@ $(document).ready(function() {
     else if (playerPicks > computerGen) {
       // Tally loss and restart the game.
       losses++;
+      $("#win-block").attr("style", "color: #630b06;")
       gameReset();
       updateDom(false);
     }
